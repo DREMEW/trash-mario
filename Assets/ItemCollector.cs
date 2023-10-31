@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
+
 
 public class ItemCollector : MonoBehaviour
 {
-    private int coins = 0;
+    [SerializeField]private int coins = 0;
 
-    [SerializeField] private Text coinsText;
+    [SerializeField] private TextMeshProUGUI coinsText;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,7 +19,8 @@ public class ItemCollector : MonoBehaviour
            
             Destroy(collision.gameObject);
             coins++;
-            Debug.Log("Coins: " + coins);
+         
+            coinsText.text = "coins: " + coins;
         }
     }
 }
